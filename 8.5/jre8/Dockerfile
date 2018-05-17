@@ -136,6 +136,8 @@ RUN set -eux; \
 	); \
 	rm -rf "$nativeBuildDir"; \
 	rm bin/tomcat-native.tar.gz; \
+# remove all the file in webapps for security
+	rm -rf /usr/local/tomcat/webapps/*; \
 	\
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
 	apt-mark auto '.*' > /dev/null; \
